@@ -1,3 +1,4 @@
+//générer un nombre aléatoire entre zéro et un, puis choisir une option parmi pierre, papier et ciseaux pour l'ordinateur
 function getComputerChoice() {
   let random = Math.random();
   if (random < 1 / 3) {
@@ -8,7 +9,7 @@ function getComputerChoice() {
     return "scissors";
   }
 }
-
+//permettre à l'utilisateur d'entrer son choix
 function getPlayerChoice() {
   let playerChoice = prompt("Rock, Paper or Scissors?");
   playerChoice = playerChoice.toLowerCase();
@@ -27,6 +28,7 @@ function getPlayerChoice() {
   return playerChoice;
 }
 
+//gérer un tour de jeu, avec le choix de l'ordinateur et celui de l'utilisateur
 function playRound(computerSelection, playerSelection) {
   computerSelection = getComputerChoice();
   playerSelection = getPlayerChoice();
@@ -51,7 +53,7 @@ function playRound(computerSelection, playerSelection) {
   }
   return result;
 }
-
+//gérer un jeu de 5 tours et afficher le score
 function playGame() {
   let score = 0;
   for (let i = 0; i < 5; i++) {
