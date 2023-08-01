@@ -1,2 +1,3 @@
-# odin-rock-paper-scissors
-The Odin Project — Rock Paper Scissors
+# Rock, Paper, Scissors
+
+Rock Paper Scissors game made for The Odin Project.
