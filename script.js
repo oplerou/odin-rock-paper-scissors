@@ -30,21 +30,42 @@ function getPlayerChoice() {
 function playRound(computerSelection, playerSelection) {
   computerSelection = getComputerChoice();
   playerSelection = getPlayerChoice();
+  let result = "";
 
   console.log(
-    "Player: " + playerSelection + "\nComputer: " + computerSelection
+    "Player: " + playerSelection + " — Computer: " + computerSelection
   );
   if (computerSelection === playerSelection) {
-    console.log("Draw");
+    console.log("   Draw");
+    result = "draw";
   } else if (
     (computerSelection == "rock" && playerSelection == "paper") ||
     (computerSelection == "paper" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "rock")
   ) {
-    console.warn("You won!");
+    console.log("   Round won!");
+    result = "won";
   } else {
-    console.error("You lose.");
+    console.log("   Round lost.");
+    result = "lose";
+  }
+  return result;
+}
+
+function playGame() {
+  let score = 0;
+  for (let i = 0; i < 5; i++) {
+    let game = playRound();
+    if (game == "won") {
+      score++;
+    }
+  }
+  console.log("Score: " + score + "/5");
+  if (score >= 3) {
+    console.warn("Congratulations, You won! :D");
+  } else {
+    console.error("Sorry, you lost. :/");
   }
 }
 
-playRound();
+playGame();
